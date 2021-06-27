@@ -2,6 +2,8 @@
 
 ## Udemy - Typescript: The Complete Developer's Guide
 
+## Notes:
+
 ### Create tsconfig.json
 
 ```
