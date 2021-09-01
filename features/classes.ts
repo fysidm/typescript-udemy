@@ -9,6 +9,7 @@ class Vehicle {
   //   this.color = color;
   // }
 
+  // alternative constructor
   constructor(public color: string) { }
 
   protected honk(): void {
@@ -20,19 +21,23 @@ const vehicle = new Vehicle('orange');
 // vehicle.honk();
 console.log(vehicle.color);
 
-// class Car extends Vehicle {
-//   // override method
-//   // can not override public method
-//   private drive(): void {
-//     console.log('vroom');
-//   }
+class Car extends Vehicle {
+  constructor(public wheels: number, color: string) {
+    super(color);
+  }
 
-//   startDrivingProcess(): void {
-//     this.drive();
-//     this.honk();
-//   }
-// }
+  // override method
+  // can not override public method
+  private drive(): void {
+    console.log('vroom');
+  }
 
-// const car = new Car();
-// car.startDrivingProcess();
+  startDrivingProcess(): void {
+    this.drive();
+    this.honk();
+  }
+}
+
+const car = new Car(4, 'red');
+car.startDrivingProcess();
 // car.honk();
