@@ -21,3 +21,9 @@ tsc index.ts
 ```
 ts-node index.ts
 ```
+
+#### **Error: Cannot find module '@types/node/package.json'**
+
+```
+npm install -D tslib @types/node
+```
