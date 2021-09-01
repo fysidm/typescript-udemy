@@ -3,19 +3,24 @@ class Vehicle {
   //   console.log(`chugga chugga`);
   // }
 
-  public honk(): void {
+  protected honk(): void {
     console.log('beep');
   }
 }
 
+const vehicle = new Vehicle();
+vehicle.honk();
+
 class Car extends Vehicle {
   // override method
+  // can not override public method
   private drive(): void {
     console.log('vroom');
   }
 
   startDrivingProcess(): void {
     this.drive();
+    this.honk();
   }
 }
 
