@@ -1,7 +1,8 @@
 // install `@types/faker` fix faker do not have type definition files.
 import faker from 'faker';
 
-class User {
+// not using export default
+export class User {
   name: string;
   location: {
     lat: number;
