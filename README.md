@@ -10,6 +10,18 @@
 tsc --init
 ```
 
+#### Run tsc with tsconfig.json
+
+```
+tsc
+```
+
+#### TSC watch mode
+
+```
+tsc -w
+```
+
 ### Generate .js from .ts
 
 ```
