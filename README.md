@@ -27,3 +27,9 @@ ts-node index.ts
 ```
 npm install -D tslib @types/node
 ```
+
+### Run .ts in browser with Parcel
+
+```
+parcel index.html
+```
