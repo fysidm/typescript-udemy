@@ -1,10 +1,10 @@
-import axios from 'axios';
+import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
+import { User } from './models/User';
 
-// POST: add new user
-// axios.post('http://localhost:3000/users', {
-//   name: 'myname',
-//   age: 20
-// });
+const user = new User({ id: 1 });
 
-// GET: Get specific user
-axios.get('http://localhost:3000/users/1');
+user.fetch();
+
+setTimeout(() => {
+  console.log(user);
+}, 4000);
