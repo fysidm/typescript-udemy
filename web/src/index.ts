@@ -1,10 +1,11 @@
 import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 import { User } from './models/User';
 
-const user = new User({ id: 1 });
+// Add new user
+const user = new User({ name: 'new record', age: 1 });
 
-user.fetch();
+// Update user
+// const user = new User({ id: 1 });
+// user.set({ name: 'NEW NAME', age: 99 });
 
-setTimeout(() => {
-  console.log(user);
-}, 4000);
+user.save();
