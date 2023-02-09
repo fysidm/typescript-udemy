@@ -45,3 +45,17 @@ npm install -D tslib @types/node
 ```
 parcel index.html
 ```
+
+### [UPDATE] Run .ts in browser with Parcel
+
+```
+npx parcel index.html
+```
+
+### [UPDATE] faker alternative
+
+```
+npm install @faker-js/faker
+
+import { faker } from "@faker-js/faker";
+```

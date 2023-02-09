@@ -1,5 +1,7 @@
 // Instructions to every other class
 // on how they can be an argument to 'addMarker'
+// Fix google function
+/// <reference types="@types/google.maps" />
 export interface Mappable {
   location: {
     lat: number;
@@ -13,7 +15,7 @@ export class CustomMap {
   private googleMap: google.maps.Map;
 
   constructor(divId: string) {
-    this.googleMap = new google.maps.Map(document.getElementById(divId), {
+    this.googleMap = new google.maps.Map(document.getElementById(divId) as HTMLElement, {
       center: { lat: 0, lng: 0 },
       zoom: 1,
     });
