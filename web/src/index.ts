@@ -8,4 +8,11 @@ const user = new User({ name: 'new record', age: 1 });
 // const user = new User({ id: 1 });
 // user.set({ name: 'NEW NAME', age: 99 });
 
-user.save();
+// user.save();
+
+// test events
+user.events.on('change', () => {
+  console.log('change');
+})
+
+user.events.trigger('change');
