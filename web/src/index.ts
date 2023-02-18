@@ -23,13 +23,23 @@ const user = new User({ name: 'new record', age: 1 });
 // });
 
 // fix this problem with arrow function
-console.log(user.get('name'))
+// console.log(user.get('name'))
 
-user.on('change', ()=>{
-  console.log('User was changed')
-})
+// user.on('change', ()=>{
+//   console.log('User was changed')
+// })
 
-user.trigger('change')
+// user.trigger('change')
+
+// Add set
+// console.log(user.get('name'));
+
+// user.on('change', () => {
+//   console.log('User was changed');
+// });
+
+// user.set({name: 'new name'});
+// console.log(user.get('name'));
 
 /*** Reminder on how 'this' works in javascript ***/ 
 // const colors = {
