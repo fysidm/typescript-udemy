@@ -1,4 +1,4 @@
-import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
+// import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 import { User } from './models/User';
 
 // Add new user
@@ -80,10 +80,22 @@ import { User } from './models/User';
 // user.fetch();
 
 /*** Saving user data ***/
-const user = new User({ id: 1, name: 'newer name', age: 1 });
+// const user = new User({ id: 1, name: 'newer name', age: 1 });
 
-user.on('save', () => {
+// user.on('save', () => {
+//   console.log(user);
+// });
+
+// user.save();
+
+/*** Extracting model ***/
+const user = User.buildUser({ id: 1 });
+
+user.on('change', () => {
   console.log(user);
 });
 
-user.save();
+user.fetch();
+
+// example of user operation
+console.log(user.isAdminUser());
