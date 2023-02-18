@@ -111,10 +111,19 @@ import { Collection } from "./models/Collection";
 // collection.fetch();
 
 /*** Generic Collection ***/
-const collection = new Collection<User, UserProps>(
-  'http://localhost:3000/users',
-  (json: UserProps) => User.buildUser(json)
-);
+// const collection = new Collection<User, UserProps>(
+//   'http://localhost:3000/users',
+//   (json: UserProps) => User.buildUser(json)
+// );
+
+// collection.on('change', () => {
+//   console.log(collection)
+// });
+
+// collection.fetch();
+
+/*** Class method for collection ***/
+const collection = User.buildUserCollection();
 
 collection.on('change', () => {
   console.log(collection)
