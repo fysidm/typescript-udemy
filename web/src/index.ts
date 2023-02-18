@@ -1,5 +1,5 @@
 // import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
-// import { User } from './models/User';
+import { User, UserProps } from './models/User';
 import { Collection } from "./models/Collection";
 
 // Add new user
@@ -102,10 +102,22 @@ import { Collection } from "./models/Collection";
 // console.log(user.isAdminUser());
 
 /*** Collection ***/
-const collection = new Collection('http://localhost:3000/users');
+// const collection = new Collection('http://localhost:3000/users');
+
+// collection.on('change', () => {
+//   console.log(collection)
+// })
+
+// collection.fetch();
+
+/*** Generic Collection ***/
+const collection = new Collection<User, UserProps>(
+  'http://localhost:3000/users',
+  (json: UserProps) => User.buildUser(json)
+);
 
 collection.on('change', () => {
   console.log(collection)
-})
+});
 
 collection.fetch();
