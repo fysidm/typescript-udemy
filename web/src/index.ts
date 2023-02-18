@@ -71,10 +71,19 @@ import { User } from './models/User';
 // // console.log(person.fullName())
 
 /*** Fetching user data ***/
-const user = new User({ id: 1 });
+// const user = new User({ id: 1 });
 
-user.on('change', () => {
+// user.on('change', () => {
+//   console.log(user);
+// });
+
+// user.fetch();
+
+/*** Saving user data ***/
+const user = new User({ id: 1, name: 'newer name', age: 1 });
+
+user.on('save', () => {
   console.log(user);
 });
 
-user.fetch();
+user.save();
