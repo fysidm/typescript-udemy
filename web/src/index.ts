@@ -1,6 +1,7 @@
 // import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
-import { User, UserProps } from './models/User';
-import { Collection } from "./models/Collection";
+// import { User, UserProps } from './models/User';
+// import { Collection } from "./models/Collection";
+import { UserForm } from "./views/UserForm";
 
 // Add new user
 // const user = new User({ name: 'new record', age: 1 });
@@ -123,10 +124,17 @@ import { Collection } from "./models/Collection";
 // collection.fetch();
 
 /*** Class method for collection ***/
-const collection = User.buildUserCollection();
+// const collection = User.buildUserCollection();
 
-collection.on('change', () => {
-  console.log(collection)
-});
+// collection.on('change', () => {
+//   console.log(collection)
+// });
 
-collection.fetch();
+// collection.fetch();
+
+/*** Add view class ***/
+const userForm = new UserForm(
+  document.getElementById('root')
+);
+
+userForm.render();
