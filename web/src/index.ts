@@ -2,6 +2,7 @@
 // import { User, UserProps } from './models/User';
 // import { Collection } from "./models/Collection";
 import { UserForm } from "./views/UserForm";
+import { User } from "./models/User";
 
 // Add new user
 // const user = new User({ name: 'new record', age: 1 });
@@ -133,8 +134,12 @@ import { UserForm } from "./views/UserForm";
 // collection.fetch();
 
 /*** Add view class ***/
+const user = User.buildUser({ name: 'NAME', age: 20 });
+
 const userForm = new UserForm(
-  document.getElementById('root')
+  // Fix null is not element
+  document.getElementById('root') as Element,
+  user
 );
 
 userForm.render();
