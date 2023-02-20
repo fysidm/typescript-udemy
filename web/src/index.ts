@@ -1,7 +1,8 @@
 // import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 // import { User, UserProps } from './models/User';
 // import { Collection } from "./models/Collection";
-import { UserForm } from "./views/UserForm";
+// import { UserForm } from "./views/UserForm";
+import { UserEdit } from "./views/UserEdit";
 import { User } from "./models/User";
 
 // Add new user
@@ -139,12 +140,14 @@ const user = User.buildUser({ name: 'NAME', age: 20 });
 const root = document.getElementById('root');
 
 if (root) {
-  const userForm = new UserForm(
+  const userEdit = new UserEdit(
     root,
     user
   );
 
-  userForm.render();
+  userEdit.render();
+
+  console.log(userEdit)
 } else {
   throw new Error('Root element not found.');
 }
