@@ -1,8 +1,7 @@
-// Can use generic type also
-import { User } from "../models/User";
+import { Model, MayHasId } from "../models/Model";
 
-export abstract class View {
-  constructor(public parent: Element, public model: User) {
+export abstract class View<T extends Model<K>, K extends MayHasId> {
+  constructor(public parent: Element, public model: T) {
     this.bindModel();
   }
 
