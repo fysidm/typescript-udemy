@@ -5,8 +5,12 @@ export abstract class View<T extends Model<K>, K extends MayHasId> {
     this.bindModel();
   }
 
-  abstract eventsMap(): { [key: string]: () => void };
   abstract template(): string;
+
+  // will have default eventsMap cuz UserView do not need eventsMap
+  eventsMap(): { [key: string]: () => void } {
+    return {}
+  };
 
   bindModel(): void {
     this.model.on('change', () => {
