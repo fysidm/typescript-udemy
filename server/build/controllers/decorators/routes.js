@@ -1,10 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.get = void 0;
+exports.patch = exports.del = exports.post = exports.put = exports.get = void 0;
 require("reflect-metadata");
-function get(path) {
-    return function (target, key, desc) {
-        Reflect.defineMetadata('path', path, target, key);
+var methods_1 = require("./methods");
+function routeBinder(method) {
+    return function (path) {
+        return function (target, key, desc) {
+            Reflect.defineMetadata('path', path, target, key);
+            Reflect.defineMetadata('method', method, target, key);
+        };
     };
 }
-exports.get = get;
+exports.get = routeBinder(methods_1.Methods.get);
+exports.put = routeBinder(methods_1.Methods.put);
+exports.post = routeBinder(methods_1.Methods.post);
+exports.del = routeBinder(methods_1.Methods.del);
+exports.patch = routeBinder(methods_1.Methods.patch);
