@@ -1,17 +1,11 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 // Decorators
-import { get, controller, use } from './decorators';
-
-function logger(req: Request, res: Response, next: NextFunction) {
-  console.log('Request was made!!');
-  next();
-}
+import { get, controller, post, bodyValidator } from './decorators';
 
 @controller('/auth')
 class LoginController {
   @get('/login')
-  @use(logger)
   getLogin(req: Request, res: Response): void {
     res.send(`
       <form method="POST">
@@ -26,5 +20,20 @@ class LoginController {
         <button>Submit</button>
       </form>
     `);
+  }
+
+  @post('/login')
+  @bodyValidator('email', 'password')
+  postLogin(req: Request, res: Response) {
+    const { email, password } = req.body;
+
+    if (email && password && email === 'hi@hi.com' && password === 'password') {
+      // mark this person as logged in
+      req.session = { loggedIn: true };
+      // redirect them to the root route
+      res.redirect('/');
+    } else {
+      res.send('Invalid email or password');
+    }
   }
 }
