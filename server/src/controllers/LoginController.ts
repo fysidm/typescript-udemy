@@ -5,6 +5,12 @@ import { get, controller, post, bodyValidator } from './decorators';
 
 @controller('/auth')
 class LoginController {
+  // Will show errors with property descriptor
+  // @get('/')
+  // add(a: number, b: number): number {
+  //   return a + b;
+  // }
+
   @get('/login')
   getLogin(req: Request, res: Response): void {
     res.send(`
