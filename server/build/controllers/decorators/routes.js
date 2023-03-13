@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.patch = exports.del = exports.post = exports.put = exports.get = void 0;
 require("reflect-metadata");
-var methods_1 = require("./methods");
+var Methods_1 = require("./Methods");
 var MetadataKeys_1 = require("./MetadataKeys");
 function routeBinder(method) {
     return function (path) {
@@ -12,8 +12,8 @@ function routeBinder(method) {
         };
     };
 }
-exports.get = routeBinder(methods_1.Methods.get);
-exports.put = routeBinder(methods_1.Methods.put);
-exports.post = routeBinder(methods_1.Methods.post);
-exports.del = routeBinder(methods_1.Methods.del);
-exports.patch = routeBinder(methods_1.Methods.patch);
+exports.get = routeBinder(Methods_1.Methods.get);
+exports.put = routeBinder(Methods_1.Methods.put);
+exports.post = routeBinder(Methods_1.Methods.post);
+exports.del = routeBinder(Methods_1.Methods.del);
+exports.patch = routeBinder(Methods_1.Methods.patch);
