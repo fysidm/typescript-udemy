@@ -4,14 +4,14 @@ import { Dispatch } from 'redux';
 import { ActionTypes } from './types';
 
 // Fetch data structure
-interface Todo {
+export interface Todo {
   id: number;
   title: string;
   completed: boolean;
 }
 
 // Dispatch data structure
-interface FetchTodosAction {
+export interface FetchTodosAction {
   type: ActionTypes.fetchTodos;
   payload: Todo[];
 }
