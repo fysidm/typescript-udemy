@@ -6,7 +6,8 @@ import { StoreState } from '../reducers';
 
 interface AppProps {
   todos: Todo[];
-  fetchTodos: typeof fetchTodos;
+  // Fix redux type error
+  fetchTodos: Function;
   deleteTodo: typeof deleteTodo;
 }
 
